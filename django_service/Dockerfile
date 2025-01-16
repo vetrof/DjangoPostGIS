@@ -3,13 +3,14 @@ FROM python:3.10-slim
 WORKDIR /code
 
 COPY . /code
+COPY manage.py /code/
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install -y \
-    gdal-bin \
-    libgdal-dev
+# RUN apt-get update && apt-get install -y \
+#     gdal-bin \
+#     libgdal-dev
 
 
 RUN pip install --upgrade pip
