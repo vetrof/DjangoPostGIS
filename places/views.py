@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from places.models import Place
+from .serializer import PlaceSerializer
 
-# Create your views here.
+class PlaceListApi(APIView):
+    def get(self, request):
+        places = Place.objects.all()
+        serializer = PlaceSerializer(places, many=True)
+        return Response({'places': serializer.data})

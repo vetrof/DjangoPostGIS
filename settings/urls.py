@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from places.views import PlaceListApi
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/places', PlaceListApi.as_view()),
 ]
