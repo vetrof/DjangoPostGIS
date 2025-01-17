@@ -1,15 +1,15 @@
 
 services:
   web:
-    build:
-      context: ./django_service
-    command: python code/manage.py runserver 0.0.0.0:8000
+    build: ./django_service
+    entrypoint: /app/entrypoint.sh
     env_file:
       - ./.env
     volumes:
-      - .:/code
+      - ./django_service/:/app/
     ports:
       - 8000:8000
+    restart: unless-stopped
     depends_on:
       - db
 
