@@ -106,3 +106,6 @@ POSTGRES_USER=postgres_user
 POSTGRES_PASSWORD=12345
 POSTGRES_HOST=db
 POSTGRES_PORT=5432
+
+для пересборки го приложения  
+docker compose restart go

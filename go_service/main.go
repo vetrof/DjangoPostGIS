@@ -7,7 +7,7 @@ import (
 )
 
 func getPing(c *gin.Context){
-	answer := "Pong!!++++"
+	answer := "Pong!!++++-----@@@@@@"
 	c.IndentedJSON(http.StatusOK, answer)
 }
 
