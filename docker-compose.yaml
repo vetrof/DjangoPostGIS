@@ -1,4 +1,3 @@
-
 services:
   web:
     build: ./django_service
@@ -13,19 +12,25 @@ services:
     depends_on:
       - db
 
-  go_service:
+  go:
     build:
       context: ./go_service
+      dockerfile: Dockerfile
+    entrypoint: /app/entrypoint.sh
     ports:
       - "8080:8080"
+    volumes:
+      - ./go_service:/app
     env_file:
       - ./.env
     depends_on:
       - db
     restart: always
+#    command: ["go", "run", "./main.go"]
+#    command: ["./go_service"]
+
 
   db:
-    #image: postgres:12.0-alpine
     image: postgis/postgis:15-3.3
     volumes:
       - postgres_volume:/var/lib/postgresql/data/

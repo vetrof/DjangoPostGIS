@@ -7,14 +7,12 @@ WORKDIR /app
 # Копируем файлы go.mod и go.sum для установки зависимостей
 COPY go.mod go.sum ./
 
-# Устанавливаем зависимости
-RUN go mod download
-
 # Копируем остальные файлы
 COPY . .
 
-# Сборка приложения
-RUN go build -o go_service .
+# Устанавливаем зависимости
+RUN go mod download
 
-# Запуск приложения
-CMD ["./go_service"]
+WORKDIR /app
+
+RUN chmod +x /app/entrypoint.sh
