@@ -38,5 +38,7 @@ services:
       - .env
     restart: always
 
+#    TODO add redis for cache
+
 volumes:
   postgres_volume:
