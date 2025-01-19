@@ -1,3 +1,4 @@
 
 .env
 /.idea
+go_service/api
