@@ -37,5 +37,15 @@ services:
 
 #    TODO add redis for cache
 
+  tbot:
+    build: ./tbot
+    entrypoint: python bot.py
+    volumes:
+      - ./tbot/:/app/
+    env_file:
+      - .env
+    restart: always
+
+
 volumes:
   postgres_volume:
